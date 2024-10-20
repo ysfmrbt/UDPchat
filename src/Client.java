@@ -78,10 +78,6 @@ public class Client {
         this.username = username;
     }
 
-    public void setClientSocket(DatagramSocket clientSocket) {
-        this.clientSocket = clientSocket;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }

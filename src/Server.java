@@ -26,7 +26,7 @@ public class Server {
     public Server(InetAddress serverAddress, int serverPort) {
         this.serverAddress = serverAddress;
         this.serverPort = serverPort;
-        Server.clients = new ArrayList<Client>();
+        Server.clients = new ArrayList<>();
     }
 
 
