@@ -5,10 +5,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Shared {
+
+    // Méthode pour obtenir les données d'un paquet
     public static String data(DatagramPacket packet) {
         return new String(packet.getData(), 0, packet.getLength());
     }
 
+    // Méthode pour envoyer un paquet
     public static void sendPacket(byte[] data, DatagramSocket socket, InetAddress remoteAddress, int remotePort) throws Exception {
         DatagramPacket packet = new DatagramPacket(data, data.length, remoteAddress, remotePort);
         try {
@@ -19,6 +22,7 @@ public class Shared {
         }
     }
 
+    // Méthode pour recevoir un paquet
     public static DatagramPacket receivePacket(int bufferSize, DatagramSocket localSocket) throws Exception {
         byte[] buffer = new byte[bufferSize];
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
@@ -31,6 +35,7 @@ public class Shared {
         }
     }
 
+    // Méthode pour formater un message
     public static String formatMessage(String message, String username) {
         // Add timestamp to message
         // Add username to message
