@@ -1,3 +1,5 @@
+package utils;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -41,6 +43,6 @@ public class Shared {
         // Add username to message
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        return "[" + dtf.format(now) + "] [" + username + "] " + message;
+        return "[" + dtf.format(now) + "] [" + username + "] : " + message;
     }
 }
