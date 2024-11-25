@@ -27,7 +27,7 @@ public class Server {
             // Gestion des requêtes clients
             server.handleClientRequest();
         } catch (Exception e) {
-            System.out.println("Error starting server: " + e.getMessage());
+            System.out.println("Erreur de démarrage du serveur: " + e.getMessage());
         } finally {
             server.stop();
         }
@@ -48,7 +48,7 @@ public class Server {
             System.out.println("Le serveur a commencé à " + this.serverSocket.getLocalAddress().getHostAddress() + ":" + this.serverPort);
 
         } catch (Exception e) {
-            System.out.println("Error creating server socket: " + e.getMessage());
+            System.out.println("Erreur de création de socket: " + e.getMessage());
             throw e;
         }
     }
@@ -78,7 +78,7 @@ public class Server {
                 }
 
             } catch (Exception e) {
-                System.out.println("Error handling client request: " + e.getMessage());
+                System.out.println("Erreur de reception: " + e.getMessage());
                 break;
             }
         }
@@ -103,7 +103,7 @@ public class Server {
                 }
                 Shared.sendPacket(Shared.formatMessage(message, client.getUsername()).getBytes(), this.serverSocket, c.getAddress(), c.getPort());
             } catch (Exception e) {
-                System.out.println("Error broadcasting message: " + e.getMessage());
+                System.out.println("Erreur de diffusion: " + e.getMessage());
             }
         }
     }
@@ -111,7 +111,7 @@ public class Server {
     // Méthode pour arrêter le serveur
     public void stop() {
         this.serverSocket.close();
-        System.out.println("connections.Server stopped");
+        System.out.println("Le serveur a été arrêté.");
     }
 
     public void sendMessage(Client client, Client receiver, String message) {

@@ -19,7 +19,7 @@ public class Shared {
         try {
             socket.send(packet);
         } catch (Exception e) {
-            System.out.println("Error sending packet: " + e.getMessage());
+            System.out.println("Erreur d'envoi de pacquet: " + e.getMessage());
             throw e;
         }
     }
@@ -32,7 +32,7 @@ public class Shared {
             localSocket.receive(packet);
             return packet;
         } catch (Exception e) {
-            System.out.println("Error receiving packet: " + e.getMessage());
+            System.out.println("Erreur de reception de pacquet: " + e.getMessage());
             throw e;
         }
     }
