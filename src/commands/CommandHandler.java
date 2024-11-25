@@ -14,6 +14,8 @@ public class CommandHandler {
         registerCommand(new SetUsernameCommand());
         registerCommand(new PrivateMessageCommand());
         registerCommand(new HelpCommand());
+        registerCommand(new ConnectedCommand());
+        registerCommand(new DisconnectCommand());
     }
 
     public void registerCommand(Command command) {

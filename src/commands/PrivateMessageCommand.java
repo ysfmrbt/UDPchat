@@ -13,7 +13,7 @@ public class PrivateMessageCommand extends Command {
     @Override
     public void execute(Server server, Client client, String[] args) {
         if (args.length < 2) {
-            System.out.println("Nom d'utilisateur ou message manquant.");
+            server.sendServerMessage(client,"Nom d'utilisateur ou message manquant.");
             return;
         }
         String username = args[0];
@@ -27,7 +27,7 @@ public class PrivateMessageCommand extends Command {
         String message = messageBuilder.toString();
         Client receiver = Server.clients.stream().filter(c -> c.getUsername().equals(username)).findFirst().orElse(null);
         if (receiver == null) {
-            System.out.println("Client " + username + " n'existe pas.");
+            server.sendServerMessage(client, "Client " + username + " n'existe pas.");
         } else {
             server.sendMessage(client, receiver, message);
             System.out.println(client.getUsername() + " a envoyé un message privé à " + receiver.getUsername() + ": " + message);

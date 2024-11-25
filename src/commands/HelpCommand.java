@@ -12,7 +12,7 @@ public class HelpCommand extends Command {
 
     @Override
     public void execute(Server server, Client client, String[] args) {
-        System.out.println("Liste des commandes:");
+        server.sendServerMessage(client,"Liste des commandes:");
         server.commandHandler.commands.forEach((name, command) -> {
             server.sendServerMessage(client, command.getName() + " " + command.getOptions() + " -> " + command.getDescription());
         });

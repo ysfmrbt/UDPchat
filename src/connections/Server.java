@@ -77,7 +77,6 @@ public class Server {
                     System.out.println(Shared.formatMessage(data, client.getUsername()));
                 }
 
-
             } catch (Exception e) {
                 System.out.println("Error handling client request: " + e.getMessage());
                 break;
@@ -122,9 +121,9 @@ public class Server {
             }
         }
         try {
-            Shared.sendPacket(Shared.formatMessage(message, client.getUsername()).getBytes(), this.serverSocket, receiver.getAddress(), receiver.getPort());
+            Shared.sendPacket(Shared.formatPrivateMessage(message, receiver.getUsername(), client.getUsername()).getBytes(), this.serverSocket, receiver.getAddress(), receiver.getPort());
         } catch (Exception e) {
-            System.out.println("Error sending message: " + e.getMessage());
+            System.out.println("Erreur d'envoi d'un message: " + e.getMessage());
         }
     }
 
@@ -132,8 +131,11 @@ public class Server {
         try {
             Shared.sendPacket(Shared.formatMessage(message, "Server").getBytes(), this.serverSocket, client.getAddress(), client.getPort());
         } catch (Exception e) {
-            System.out.println("Error sending message: " + e.getMessage());
+            System.out.println("Erreur d'envoi d'un message: " + e.getMessage());
         }
     }
 
+    public void disconnectClient(Client client) {
+        clients.remove(client);
+    }
 }
